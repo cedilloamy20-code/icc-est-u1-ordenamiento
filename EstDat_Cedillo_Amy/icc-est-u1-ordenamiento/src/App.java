@@ -12,6 +12,12 @@ public class App {
         printArreglo(b);
         bubble.sort(b);
         printArreglo(b);
+
+        //INSTANCIAS SELECCIÓN
+        System.out.println("Selection Sort:");
+        Selection selection = new Selection();
+        printArreglo(c);
+        selection.sort(c);
         
     }
     public static void printArreglo(int[] arr) {
