@@ -29,5 +29,10 @@ public class Estudiante {
     public void setNota(double nota) {
         this.nota = nota;
     }
+
+    @Override
+    public String toString() {
+        return "Estudiante [name=" + name + ", nota=" + nota + "]";
+    }
 }
 

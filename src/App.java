@@ -3,7 +3,9 @@ import models.Estudiante;
 public class App {
     public static void main(String[] args) throws Exception {
         runEjemplosPrimitivos();
+        runEjemplosObjetos();
     }
+
     private static void runEjemplosObjetos() {
 
         Estudiante e1 = new Estudiante("Juan", 10);
@@ -13,9 +15,17 @@ public class App {
             new Estudiante("Diego", 3.5),
             new Estudiante("Pedro", 6.8),    
         };
-
+        
         Bubble bubble = new Bubble();
         
+        System.out.println("original");
+        printArreglo(estudiantes); //
+        
+        bubble.sortEstudiantes(estudiantes);
+        
+        System.out.println("ordenado");
+        printArreglo(estudiantes); //
+    
     }
 
     public static void runEjemplosPrimitivos() {
@@ -51,6 +61,13 @@ public class App {
     }
 
     public static void printArreglo(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " - ");
+        }
+        System.out.println();
+    }
+    
+    public static void printArreglo(Estudiante[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " - ");
         }
