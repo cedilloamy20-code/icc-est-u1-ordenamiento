@@ -5,10 +5,11 @@ public class Bubble {
     public void sort(int[] arreglo) {
         int cambios = 0;
         int comparaciones = 0;
-        for(int i = 0; i < arreglo.length - 1; i++) {
-            System.out.println("Pasada " + i);
+        for(int i = 0; i < arreglo.length; i++) {
+            System.out.println("Pasadas " + i);
             boolean combinaciones = false;
             for (int j = 1; j < arreglo.length - i; j++) {
+                //COMPARACION IF
                 comparaciones++;
                 if (arreglo [j - 1] > arreglo[j]) {
                     cambios++;
@@ -21,27 +22,27 @@ public class Bubble {
             if (!combinaciones) {
                 break;
             }
-            System.out.println("Cambios: " + cambios);
-            System.out.println("Comparaciones: " + comparaciones);
         }
-        
         System.out.println("Cambios: " + cambios);
         System.out.println("Comparaciones: " + comparaciones);
     }
     public void sortEstudiantes(Estudiante[] estudiantes) {
         for (int i = 0; i < estudiantes.length; i++) {
             boolean cambio = false;
+            //FOR J
             for (int j = 0; j < estudiantes.length - i - 1; j++) {
+                //COMPARACIOM IF
                 if (estudiantes[j].getNota() > estudiantes[j + 1].getNota()) {
-                    // INTERCAMBIO
+                    // INTERCAMBIAR ELEMENTOS
                     Estudiante aux = estudiantes[j];
                     estudiantes[j] = estudiantes[j + 1];
                     estudiantes[j + 1] = aux;
                     cambio = true;
+                }
             }
-        }
-        if (!cambio)
-            break;
+            if (!cambio) {
+                break;
+            }
         }
     }
 }

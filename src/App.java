@@ -59,17 +59,18 @@ public class App {
         printArreglo(d);
         
     }
-
+    //Metodo que imprime un arreglo de enteros
     public static void printArreglo(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " - ");
         }
         System.out.println();
-    }
-    
+        }
+    //NUEVO MÉTODO: Sobrecarga para imprimir arreglos de Estudiantes (Estudiante[])
     public static void printArreglo(Estudiante[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " - ");
+            Estudiante e = arr[i];
+            System.out.println(e.getName() + " - " + e.getNota());
         }
         System.out.println();
     }

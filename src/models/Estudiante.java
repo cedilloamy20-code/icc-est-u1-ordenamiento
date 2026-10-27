@@ -1,5 +1,7 @@
 package models;
 
+//Una sola clase Estudiante con 2 atributos.
+
 public class Estudiante {
     private String name;
     private double nota;
