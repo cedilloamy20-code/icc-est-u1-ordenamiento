@@ -181,7 +181,11 @@ public class Comparators {
         List<Estudiante> lista = new ArrayList<>(estList);
         Comparator<Estudiante> comparator = Comparator
                 .comparingDouble((Estudiante e) -> {
-                    double
+                    double notaAjustada = e.getNota();
+                    if (notaAjustada < 7) {
+                        notaAjustada += 2;
+                    }
+                    return Math.min(notaAjustada, 10);
                 })
                 .thenComparing(Comparator.comparing(Estudiante::getName).reversed());
         lista.sort(comparator);
