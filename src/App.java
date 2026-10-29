@@ -11,30 +11,12 @@ public class App {
         runComparators();
         runComparatorsObj();
         runComparatorsObj2();
+
+        Comparators comparators = new Comparators();
     } 
 
-    private static void runComparatorsObj2(){
-        Estudiante e1 = new Estudiante("Juan", 10);
-        
-        Estudiante[] estudiantes = {e1,
-            new Estudiante("Maria", 7),
-            new Estudiante("Diego", 3.5),
-            new Estudiante("Pedro", 6.8),    
-        };
-
-        Comparator<Estudiante> compNota = Comparator.comparingDouble(e -> e.getNota());
-        Arrays.sort(estudiantes, compNota);
-        System.out.println("Ordenado por nota de menor a mayor");
-        for (int i = 0; i < estudiantes.length; i++) {
-            System.out.print(estudiantes[i] + " - ");
-        }
-        List<Estudiante> estudiantesList = new ArrayList<>(Arrays.asList(estudiantes));
-
-    }
-
     private static void runComparatorsObj() {
-        List<Integer> numeros =
-         new ArrayList<>(List.of(5, 6, 4, 1, 2, 3));
+        List<Integer> numeros = new ArrayList<>(List.of(5, 6, 4, 1, 2, 3));
         
         //orden de menor a mayor
         numeros.sort(Comparator.naturalOrder());
@@ -45,23 +27,50 @@ public class App {
         System.out.println(numeros);
     }
 
+    private static void runComparatorsObj2() {
+        Estudiante e1 = new Estudiante ("Juan", 10);
+
+        Estudiante[] estudiantes ={e1,
+            new Estudiante("Maria", 7),
+            new Estudiante("Diego", 3.5),
+            new Estudiante("Pedro", 6.8),
+        };
+        Comparator<Estudiante> compNota = Comparator.comparingDouble(e -> e.getNota());
+        Arrays.sort(estudiantes, compNota);
+        System.out.println("Ordenado por nota de menor a mayor");
+        for (int i = 0; i < estudiantes.length; i++) {
+            System.out.println(estudiantes[i]);
+        }
+        List<Estudiante> estudiantesLista = new ArrayList<>(List.of(e1,
+            new Estudiante("Maria", 7),
+            new Estudiante("Diego", 3.5),
+            new Estudiante("Pedro", 6.8)));
+            estudiantesLista.sort(compNota);
+            System.out.println("Ordenado por nota de menor a mayor");
+            for (Estudiante e : estudiantesLista) {
+                System.out.println(e);
+            }
+    }
+    
     private static void runComparators() {
+        //Arreglo de enteros
        Integer[] original = { 5, 6, 4, 1, 2, 3};
        //Array.sort -> Ordena arreglos por su orden natural, de menor a mayor
        Arrays.sort(original);
         for (int i = 0; i < original.length; i++) {
             System.out.print(original[i] + " - ");
-       }
+        }
        System.out.println("---------");
     
        Arrays.sort(original, Comparator.reverseOrder());
         for (int i = 0; i < original.length; i++) {
-            System.out.print(original[i] + " - ");
+            System.out.println(original[i] + " - ");
        }
+
     }
-
+      
     private static void runEjemplosObjetos() {
-
+        //Arreglo de enteros
         Estudiante e1 = new Estudiante("Juan", 10);
         
         Estudiante[] estudiantes = {e1,
@@ -71,15 +80,14 @@ public class App {
         };
         
         Bubble bubble = new Bubble();
-        
-        System.out.println("original");
-        printArreglo(estudiantes); //
-        
         bubble.sortEstudiantes(estudiantes);
-        
-        System.out.println("ordenado");
-        printArreglo(estudiantes); //
-    
+        printArreglo(estudiantes); 
+    }
+    public static void printArreglo(Estudiante[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            Estudiante e = arr[i];
+        System.out.println(e.getName() + " - " + e.getNota());
+        }
     }
 
     public static void runEjemplosPrimitivos() {
@@ -113,22 +121,10 @@ public class App {
         printArreglo(d);
           
     }
-    //Metodo que imprime un arreglo de enteros
     public static void printArreglo(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " - ");
         }
         System.out.println();
         }
-    //NUEVO MÉTODO: Sobrecarga para imprimir arreglos de Estudiantes (Estudiante[])
-    public static void printArreglo(Estudiante[] arr) {
-    System.out.print("[");
-    for (int i = 0; i < arr.length; i++) {
-        System.out.print(arr[i]);
-        if (i < arr.length - 1) {
-            System.out.print(", ");
-        }
     }
-    System.out.println("]");
-}
-}
